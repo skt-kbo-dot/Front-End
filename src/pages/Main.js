@@ -1,10 +1,9 @@
-import './App.css';
+import React from "react";
 
-
-function App() {
+export default function Main() {
 
   const random1 = Math.floor(Math.random()*(4-1)+1);
-
+  
   return (
     <div>
       <header>
@@ -120,5 +119,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

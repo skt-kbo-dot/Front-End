@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +40,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.before {
+  opacity: .4;
+  top: 900px;
+  left: -600px;
+  -webkit-transform: rotate(144deg);
+  transform: rotate(144deg);
+  background: -webkit-gradient(linear,right top,left top,color-stop(38%,#9643ff),color-stop(50%,#43b0ff),color-stop(74%,rgba(72,184,236,.9)),color-stop(120%,rgba(116,255,67,0)));
+  background: linear-gradient(270deg,#9643ff 38%,#43b0ff 50%,rgba(72,184,236,.9) 74%,rgba(116,255,67,0) 120%);
 }

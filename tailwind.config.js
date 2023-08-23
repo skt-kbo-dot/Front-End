@@ -8,10 +8,10 @@ module.exports = {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
-      'md': '768px',
+      'md': '720px',
       // => @media (min-width: 768px) { ... }
 
-      'lg': '1024px',
+      'lg': '1080px',
       // => @media (min-width: 1024px) { ... }
 
       'xl': '1280px',
@@ -36,6 +36,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio')],
 }
 

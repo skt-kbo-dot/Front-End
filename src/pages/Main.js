@@ -11,27 +11,17 @@ export default function Main() {
 
   return (
     <div>
-      <header>
-        <div className="z-[100] w-[100%] h-20 bg-slate-300 backdrop-blur-md bg-opacity-50 items-start inline-flex fixed">
-          <img className="w-4.8 h-4.8 relative px-5 pt-5" src='image/a_logo.png' />
-          <div className="text-5xl font-extrabold">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-              온가족이 함께 하는 내이름은 크보닷
-            </span>
-          </div>
+      <main className="">
+        <div className="relative h-[488px] object-none ">
+          <video muted autoPlay loop className="backdrop-blur-3xl">
+            <source src={"https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.hdr.lrg."+random1+".mp4"} type="video/mp4" className='border-0 outline-0'/>
+          </video>
         </div>
-        <div className="w-[100%] h-20 justify-between items-start gap-96"></div>
-      </header>
-      
-      <main>
-        <div className="w-96 h-96 absolute rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl" />
-        <video muted autoPlay loop className="w-[1800px] h-[488px]">
-          <source src={"https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.hdr.lrg."+random1+".mp4"} type="video/mp4" className='border-0 outline-0'/>
-        </video>
-        <div className="w-96 h-96 bg-no-repeat absolute rotate-[144deg] opacity-40 bg-gradient-to-l from-purple-600 via-sky-400 to-lime-400 blur-3xl" />
+        <div className="w-96 h-96 bg-no-repeat absolute rotate-[144deg] opacity-40 bg-gradient-to-l from-purple-600 via-sky-400 to-lime-400 blur-3xl" /> {/*배경*/}
+        <div className="w-96 h-96 absolute top-[10px] right-[100px] rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl items-center justify-center" /> {/*배경*/}
 
-        <div className="grid grid-cols-3 grid-rows-4 gap-4">
-          <div className="w-344 bg-[#000333] row-span-2 rounded-3xl">
+        <div className="grid sm:grid-col-1 md:grid-col-2 lg:grid-cols-3 grid-rows-4 gap-4">
+          <div className="w-344 sm:w-[100%] bg-[#000333] row-span-2 rounded-3xl">
               <div className=''>
                 <section class="cell cell--com">
                   <h2 class="cell__hd cell__hd--com" role="text">대화</h2>
@@ -66,45 +56,37 @@ export default function Main() {
           </div>
 
 
-          <div className="cell col-span-2 bg-slate-900 rounded-3xl">
-            <Link to="/records">
-              <div className="">
-                <h2 className="cell__hd cell__hd--atv bg-slate-900" role="text"><span aria-label="에이닷">A.</span> tv</h2>
-                <p className="cell__txt cell__txt--atv bg-slate-900" role="text">지금은 2023<br/>프로야구 생중계 중!</p>
-                <div id="baseball" className="baseball">
-                    <i id="baseball-ground" class="baseball__img baseball__img--ground">
-                        <img class="baseball__ground" src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.baseball.ground.webp" alt=""/>
-                    </i>
-                    <i id="baseball-ball" class="baseball__img baseball__img--ball"></i>
-                    <i id="baseball-bat" class="baseball__img baseball__img--bat"></i>
-                </div>
+          <div className="w-344 h-344 cell col-span-2 bg-slate-900 rounded-3xl" onClick={()=>{navigate('/records')}}>
+            <div className="">
+              <h2 className="cell__hd cell__hd--atv bg-slate-900" role="text"><span aria-label="에이닷">A.</span> tv</h2>
+              <p className="cell__txt cell__txt--atv bg-slate-900" role="text">지금은 2023<br/>프로야구 생중계 중!</p>
+              <div id="baseball" className="baseball">
+                  <i id="baseball-ground" class="baseball__img baseball__img--ground">
+                      <img class="baseball__ground" src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.baseball.ground.webp" alt=""/>
+                  </i>
+                  <i id="baseball-ball" class="baseball__img baseball__img--ball"></i>
+                  <i id="baseball-bat" class="baseball__img baseball__img--bat"></i>
               </div>
-            </Link>
+            </div>
           </div>
 
 
-          <div className="relative w-344 h-344 pb-52 bg-rose-600 rounded-3xl flex-col justify-start items-start inline-flex">
-            <Link to="/shorts">
-              <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">Style Shorts</div>
-              <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO 명장면에 AI한숟가락<br/>스타일 쇼츠</div>
-              <img className="absolute bottom-0" src="image/banner1.png"></img>
-            </Link>
+          <div className="relative w-344 h-344 pb-52 bg-rose-600 rounded-3xl flex-col justify-start items-start inline-flex" onClick={()=>{navigate('/shorts')}}>
+            <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">Style Shorts</div>
+            <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO 명장면에 AI한숟가락<br/>스타일 쇼츠</div>
+            <img className="absolute bottom-0" src="image/banner1.png"></img>
           </div>
 
-          <div className="relative w-344 h-344 pb-52 bg-blue-300 rounded-3xl flex-col justify-start items-start inline-flex">
-            <Link to="/images">
+          <div className="relative w-344 h-344 pb-52 bg-blue-300 rounded-3xl flex-col justify-start items-start inline-flex" onClick={()=>{navigate('/images')}}>
               <div className="px-9 pt-9 w-[100%] h-5 text-gray-500 text-base font-bold leading-snug">Photo-cut</div>
               <div className="px-9 pt-5 text-black text-2xl font-bold leading-9">색다른 명장면을 찰칵!📸<br/>AI 포토컷</div>
               <img className="absolute bottom-0" src="image/banner1.png"></img>
-            </Link>
           </div>
 
-          <div className="relative w-344 h-344 pb-52 bg-zinc-400 rounded-3xl flex-col justify-start items-start inline-flex">
-            <Link to="/stores">
-              <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">KBO Store</div>
-              <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO선수들을 내폰에<br/>KBO Store</div>
-              <img className="absolute bottom-0" src="image/banner1.png"></img>
-            </Link>
+          <div className="relative w-344 h-344 pb-52 bg-zinc-400 rounded-3xl flex-col justify-start items-start inline-flex" onClick={()=>{navigate('/stores')}}>
+            <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">KBO Store</div>
+            <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO선수들을 내폰에<br/>KBO Store</div>
+            <img className="absolute bottom-0" src="image/banner1.png"></img>
           </div>
 
           <div className="w-344 h-344 pb-52 bg-fuchsia-700 rounded-3xl flex-col justify-start items-start gap-1.5 inline-flex relative">
@@ -140,6 +122,9 @@ export default function Main() {
         <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
         <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
         <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
+      </div>
+      <div className="w-[100%] h-96">
+        <span className="">bottom_banner</span>
       </div>
 
     </div>

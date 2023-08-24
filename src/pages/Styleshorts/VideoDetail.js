@@ -5,7 +5,7 @@ import axios from 'axios';
 function VideoDetail() {
     const { videoId } = useParams(); // 여기서 videoId를 얻습니다.
     const [video, setVideo] = useState(null);
-    const BASE_URL = 'localhost:8080/shorts';
+    const BASE_URL = 'https://c961abcf-9f24-4eab-9445-3dc20b0d09cb.mock.pstmn.io/shorts';
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${videoId}`)

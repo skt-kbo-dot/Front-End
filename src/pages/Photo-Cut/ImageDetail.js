@@ -26,11 +26,20 @@ function ImageDetail() {
             <div className="w-96 h-96 absolute top-[10px] right-[100px] rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl items-center justify-center" /> {/*배경*/}
             <div className='h-36'></div>
             <main className="px-[20%] justify-center items-center">
-                <div className="w-[100%] p-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
-                    <img src={image.originalPaths}/>
-                    <img src={image.convertedPaths}/>
-                    <h1>{image.originalTags}</h1>
-                    <h1>{image.convertedTags}</h1>
+                <div className='flex'>
+                    <div className='w-600px'>
+                        <h1 className='pb-5 text-bold underline '># {image.originalTags}</h1>
+                        <div className='bg-neutral-200 rounded-xl p-5'>
+                            <img src={image.originalPaths}/>
+                        </div>                 
+                    </div>
+                    <div className='w-10 h-10'></div>
+                    <div className='w-600px'>
+                        <h1 className='pb-5 text-bold underline '># {image.convertedTags}</h1>
+                        <div className='bg-neutral-200 rounded-xl p-5'>
+                            <img  src={image.convertedPaths}/>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>

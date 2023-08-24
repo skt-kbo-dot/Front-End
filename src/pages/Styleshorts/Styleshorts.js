@@ -8,7 +8,7 @@ export default function Styleshorts() {
     const [videos, setVideos] = useState([]);
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
-    const BASE_URL = 'localhost:8080/shorts';
+    const BASE_URL = 'https://c961abcf-9f24-4eab-9445-3dc20b0d09cb.mock.pstmn.io/shorts';
 
     useEffect(() => {
         axios.get(BASE_URL).then(response => {
@@ -51,7 +51,7 @@ export default function Styleshorts() {
         <div>
             <div className="w-96 h-96 bg-no-repeat absolute rotate-[144deg] opacity-40 bg-gradient-to-l from-purple-600 via-sky-400 to-lime-400 blur-3xl" /> {/*배경*/}
             <div className="w-96 h-96 absolute top-[10px] right-[100px] rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl items-center justify-center" /> {/*배경*/}
-            <div className="w-[100%] h-80 text-center text-5xl font-extrabold object-contain p-10">
+            <div className="w-[100%] h-60 text-center text-5xl font-extrabold object-contain p-10">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                     Style-Shorts
                 </span>
@@ -73,13 +73,18 @@ export default function Styleshorts() {
                     <div className="w-[100%] pb-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
                         <p className="pt-5 pl-5 text-center text-black text-xl font-bold ">경기 날짜</p>
                         <div className="w-[96%] relative bg-white rounded-xl inset-[2%] flex items-stretch p-3">
-                            <p className="w-150">선택된 팀: {getTeamName(teamCode)}</p>
                             <div className="flex ">
-                                <DatePicker className="w-150 px-1 py-1" selected={date} onChange={(date) => setDate(date)} dateFormat="yyyyMMdd" />
-                                <button onClick={handleFetch} title="호출" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">호출</button>
-                                <div className="w-3"></div>
-                                <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
-                                
+                                <div>
+                                    <p className="w-150">선택된 팀: {getTeamName(teamCode)}</p>
+                                </div>
+                                <div>
+                                    <DatePicker className="w-150 px-1 py-1" selected={date} onChange={(date) => setDate(date)} dateFormat="yyyyMMdd" />
+                                </div>
+                                <div className="flex absolute right-2">
+                                    <button onClick={handleFetch} title="호출" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">호출</button>
+                                    <div className="w-3"></div>
+                                    <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
+                                </div>
                             </div>
                                 
                         </div>
@@ -112,27 +117,6 @@ export default function Styleshorts() {
             </div>
         </div>
     )
-}
-
-const FetchButtonComponent = ({ label, onClick }) => {
-    return (
-        <button 
-            onClick={onClick}
-            className="absolute right-0 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900"
-        >
-            {label}
-        </button>
-    );
-}
-const ResetButtonComponent = ({ label, onClick }) => {
-    return (
-        <button 
-            onClick={onClick}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900"
-        >
-            {label}
-        </button>
-    );
 }
 
 const TEAM_NAMES = {

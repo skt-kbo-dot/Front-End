@@ -6,7 +6,7 @@ import Styleshorts from './pages/Styleshorts/Styleshorts'
 import Photocut from './pages/Photo-Cut/Photocut'
 import KBO_store from './pages/KBO_store/KBO_store'
 import Errorpage from './pages/errorpage'
-import { BrowserRouter, Routes, Route, useNavigate, Link} from 'react-router-dom'
+import { Routes, Route, useNavigate, Link} from 'react-router-dom'
 import Detail from './pages/KBO_store/detail'
 import VideoDetail from './pages/Styleshorts/VideoDetail'
 import ImageDetail from './pages/Photo-Cut/ImageDetail'
@@ -27,15 +27,18 @@ function App() {
                       <img className="h-full" src='https://i.ibb.co/fFWg03T/kbodoticon.png' />
                   </Link>
               </div>
-
-              <div className="w-[100%] h-80 text-center text-5xl font-extrabold object-contain p-3">
+              <div className="w-[100%] text-center text-2xl xl:text-5xl lg:text-4xl md:text-3xl font-extrabold object-contain p-3">
                   <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                       온가족이 함께 하는 내이름은 크보닷
                   </span>
               </div>
           </div>
           <div className="w-[100%] h-20 justify-between items-start gap-96"></div>
+          <BackButton className="absolute left-100 fixed"/>
+
+          
       </header>
+
       <Routes>
       <Route path= '/' element ={<Main/>}/>
       <Route path= '/records' element = {<KBO_record/>}/>
@@ -54,3 +57,15 @@ function App() {
 }
 
 export default App;
+
+function BackButton() {
+  const goBack = () => {
+      window.history.back();
+  }
+
+  return (
+      <button onClick={goBack} className="fixed left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded">
+          뒤로 가기
+      </button>
+  );
+}

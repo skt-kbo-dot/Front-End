@@ -5,7 +5,7 @@ import axios from 'axios';
 function ImageDetail() {
     const { imageId } = useParams(); // 여기서 videoId를 얻습니다.
     const [image, setImage] = useState(null);
-    const BASE_URL = 'https://c961abcf-9f24-4eab-9445-3dc20b0d09cb.mock.pstmn.io/images';
+    const BASE_URL = 'http://localhost:8080/images';
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${imageId}`)

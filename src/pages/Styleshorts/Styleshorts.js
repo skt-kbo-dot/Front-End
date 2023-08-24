@@ -8,7 +8,7 @@ export default function Styleshorts() {
     const [videos, setVideos] = useState([]);
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
-    const BASE_URL = 'https://c961abcf-9f24-4eab-9445-3dc20b0d09cb.mock.pstmn.io/shorts';
+    const BASE_URL = 'http://localhost:8080/shorts';
 
     useEffect(() => {
         axios.get(BASE_URL).then(response => {

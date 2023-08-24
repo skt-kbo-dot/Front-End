@@ -10,8 +10,8 @@ function ImageDetail() {
     useEffect(() => {
         axios.get(`${BASE_URL}/${imageId}`)
         .then(response => {
-            setImage(response.data[0]);
-            console.log(response.data[0]);
+            setImage(response.data);
+            console.log(response.data);
         })
         .catch(error => {
             console.error("Error fetching the video:", error);

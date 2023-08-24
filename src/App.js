@@ -64,8 +64,8 @@ function BackButton() {
   }
 
   return (
-      <button onClick={goBack} className="fixed left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded">
-          뒤로 가기
+      <button onClick={goBack} className="fixed left-2 top-1/2 transform -translate-y-1/2 bg-blue-400 text-white text-bold px-4 py-2 rounded-full">
+          뒤로<br/>가기
       </button>
   );
 }

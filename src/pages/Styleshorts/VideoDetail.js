@@ -5,13 +5,13 @@ import axios from 'axios';
 function VideoDetail() {
     const { videoId } = useParams(); // 여기서 videoId를 얻습니다.
     const [video, setVideo] = useState(null);
-    const BASE_URL = 'https://c961abcf-9f24-4eab-9445-3dc20b0d09cb.mock.pstmn.io/shorts';
+    const BASE_URL = 'http://localhost:8080/shorts';
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${videoId}`)
         .then(response => {
-            setVideo(response.data[0]);
-            console.log(response.data[0]);
+            setVideo(response.data);
+            console.log(response.data);
         })
         .catch(error => {
             console.error("Error fetching the video:", error);
@@ -27,8 +27,8 @@ function VideoDetail() {
             <div className='h-36'></div>
             <main className="px-[20%] justify-center items-center">
                 <h1 className='pb-5 text-bold underline '># {video.title}</h1>
-                <div className="w-[100%] p-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
-                    <video controls className='w-full'>
+                <div className="p-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
+                    <video controls className='max-h-200px'>
                         <source src={video.videoPath}/>
                         Your browser does not support the video tag.
                     </video>

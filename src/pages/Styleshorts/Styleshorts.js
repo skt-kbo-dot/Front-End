@@ -8,7 +8,7 @@ export default function Styleshorts() {
     const [videos, setVideos] = useState([]);
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
-    const BASE_URL = 'https://c961abcf-9f24-4eab-9445-3dc20b0d09cb.mock.pstmn.io/shorts';
+    const BASE_URL = 'localhost:8080/shorts';
 
     useEffect(() => {
         axios.get(BASE_URL).then(response => {
@@ -71,12 +71,17 @@ export default function Styleshorts() {
                         <button className="" onClick={() => handleTeamClick('HH')}><img className="" src="image/team/10_한화_이글스_logo 1.png" alt="한화 이글스"/></button>
                     </div>
                     <div className="w-[100%] pb-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
-                        <div className="pt-5 pl-5 text-center text-black text-xl font-bold ">경기 날짜</div>
-                        <div className="w-[96%] relative bg-white rounded-xl inset-[2%] flex items-stretch">
-                                <p>선택된 팀: {teamCode}</p>
-                                <DatePicker selected={date} onChange={(date) => setDate(date)} dateFormat="yyyyMMdd" />
-                                <button onClick={handleFetch}>호출 </button>
-                                <button onClick={handleReset}>리셋 </button>
+                        <p className="pt-5 pl-5 text-center text-black text-xl font-bold ">경기 날짜</p>
+                        <div className="w-[96%] relative bg-white rounded-xl inset-[2%] flex items-stretch p-3">
+                            <p className="w-150">선택된 팀: {getTeamName(teamCode)}</p>
+                            <div className="flex ">
+                                <DatePicker className="w-150 px-1 py-1" selected={date} onChange={(date) => setDate(date)} dateFormat="yyyyMMdd" />
+                                <button onClick={handleFetch} title="호출" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">호출</button>
+                                <div className="w-3"></div>
+                                <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
+                                
+                            </div>
+                                
                         </div>
                     </div>
                     <div className="w-[100%] h-[600px] relative bg-neutral-200 rounded-xl top-3">
@@ -107,4 +112,41 @@ export default function Styleshorts() {
             </div>
         </div>
     )
+}
+
+const FetchButtonComponent = ({ label, onClick }) => {
+    return (
+        <button 
+            onClick={onClick}
+            className="absolute right-0 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900"
+        >
+            {label}
+        </button>
+    );
+}
+const ResetButtonComponent = ({ label, onClick }) => {
+    return (
+        <button 
+            onClick={onClick}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900"
+        >
+            {label}
+        </button>
+    );
+}
+
+const TEAM_NAMES = {
+    'SK': 'SSG 랜더스',
+    'LG': 'LG 트윈스',
+    'WO': '키움 히어로즈',
+    'KT': 'KT 위즈',
+    'HT': 'KIA 타이거즈',
+    'NC': 'NC 다이노스',
+    'SS': '삼성 라이온즈',
+    'LT': '롯데 자이언트',
+    'OB': '두산 베이스',
+    'HH': '한화이글스'
+};
+function getTeamName(teamCode) {
+    return TEAM_NAMES[teamCode] || '선택되지않음';
 }

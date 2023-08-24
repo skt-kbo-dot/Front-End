@@ -1,13 +1,13 @@
-# 빌드 단계
-FROM node:14 as build
-WORKDIR /app
-COPY ./package.json ./
-RUN npm install
-COPY . ./
-RUN npm run build
+FROM node
 
-# 실행 단계
-FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Copy package.json and package-lock.json first to leverage Docker's cache
+COPY package.json package-lock.json ./
+
+# Install npm packages
+RUN npm install
+
+# Copy the rest of the application code
+COPY ./ ./
+
+# Set the entrypoint command to start the application
+ENTRYPOINT ["npm", "run", "start"]

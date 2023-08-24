@@ -13,6 +13,7 @@ export default function Styleshorts() {
     useEffect(() => {
         axios.get(BASE_URL).then(response => {
           setVideos(response.data);
+          console.log(response.data)
         });
     }, []);
 

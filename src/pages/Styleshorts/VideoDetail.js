@@ -9,14 +9,19 @@ function VideoDetail() {
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${videoId}`)
-        .then(response => {
-            setVideo(response.data[0]);
-            console.log(response.data[0]);
-        })
-        .catch(error => {
-            console.error("Error fetching the video:", error);
-        });
+            .then(response => {
+                setVideo(response.data); // 배열 인덱스 [0] 제거
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching the video:", error);
+            });
     }, [videoId]);
+
+    // video 상태가 업데이트될 때마다 로깅
+    useEffect(() => {
+        console.log("Video state updated:", video);
+    }, [video]);
 
     if(!video) return <div>Loading...</div>;
 

@@ -74,7 +74,7 @@ export default function Main() {
           <div className="relative w-344 h-344 pb-52 bg-rose-600 rounded-3xl flex-col justify-start items-start inline-flex" onClick={()=>{navigate('/shorts')}}>
             <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">Style Shorts</div>
             <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO 명장면에 AI한숟가락<br/>스타일 쇼츠</div>
-            <img className="absolute bottom-0" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>
+            <img className="absolute bottom-0" src="image/banner1.png"></img>
           </div>
 
           <div className="relative w-344 h-344 pb-52 bg-blue-300 rounded-3xl flex-col justify-start items-start inline-flex" onClick={()=>{navigate('/images')}}>
@@ -112,20 +112,17 @@ export default function Main() {
             <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.fnd.illust.small.webp"></img>
           </div>
         </div>
-        <div className="w-[100%] h-60">
-          <span className=""></span>
-        </div>
       </main>
 
-      <aside class="band" aria-label="에이닷 특징">
-          <ul class="band__lst">
-              <li class="band__itm">AI LIFE 스마트한 일상의 시작</li>
-              <li class="band__itm">AI Recommend  하루종일 심심할 틈이 없는 게임</li>
-              <li class="band__itm">AI PHOTO 막 찍어도 인생샷 AI 사진 편집</li>
-              <li class="band__itm">AI MUSIC 음악에 0원한 진심. 진실된 추천</li>
-          </ul>
-      </aside>
+      <div className="w-[100%] h-60">
+          <span className="">bottom_banner</span>
+      </div>
 
+      <div className='flex flex-row mb-10 absolute animate-slider'>
+        <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
+        <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
+        <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
+      </div>
       <div className="w-[100%] h-96">
         <span className="">bottom_banner</span>
       </div>

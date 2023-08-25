@@ -35,7 +35,7 @@ function ImageDetail() {
                     </div>
                     <div className='w-10 h-10'></div>
                     <div className='w-600px'>
-                        <h1 className='pb-5 text-bold underline '># {image.convertedTags}</h1>
+                        <h1 className='pb-5 text-bold underline '>{image.convertedTags}</h1>
                         <div className='bg-neutral-200 rounded-xl p-5'>
                             <img  src={image.convertedPaths}/>
                         </div>

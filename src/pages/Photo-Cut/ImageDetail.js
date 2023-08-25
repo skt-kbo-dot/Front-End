@@ -5,7 +5,8 @@ import axios from 'axios';
 function ImageDetail() {
     const { imageId } = useParams(); // 여기서 videoId를 얻습니다.
     const [image, setImage] = useState(null);
-    const BASE_URL = 'http://localhost:8080/images';
+    //const BASE_URL = 'http://localhost:8080/images';
+    const BASE_URL = 'http://43.202.126.121:8080/images';
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${imageId}`)

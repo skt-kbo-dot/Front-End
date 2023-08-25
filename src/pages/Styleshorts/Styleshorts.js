@@ -8,7 +8,8 @@ export default function Styleshorts() {
     const [videos, setVideos] = useState([]);
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
-    const BASE_URL = 'http://localhost:8080/shorts';
+    //const BASE_URL = 'http://localhost:8080/shorts';
+    const BASE_URL = 'http://43.202.126.121:8080/shorts';
 
     useEffect(() => {
         axios.get(BASE_URL).then(response => {

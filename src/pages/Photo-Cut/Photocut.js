@@ -7,7 +7,8 @@ export default function Photocut() {
     const [images, setImages] = useState([]);
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
-    const BASE_URL = 'http://localhost:8080/images';
+    //const BASE_URL = 'http://localhost:8080/images';
+    const BASE_URL = 'http://43.202.126.121:8080/images';
 
     useEffect(() => {
         axios.get(BASE_URL).then(response => 

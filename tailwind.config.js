@@ -21,6 +21,12 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      width: {
+        '600px':'600px'
+      },
+      spacing: {
+        '1/1': '100%'
+      },
       keyframes: {
         slider: {
           '0%': {

@@ -16,6 +16,7 @@ function VideoDetail() {
             .catch(error => {
                 console.error("Error fetching the video:", error);
             });
+
     }, [videoId]);
 
     // video 상태가 업데이트될 때마다 로깅
@@ -32,8 +33,8 @@ function VideoDetail() {
             <div className='h-36'></div>
             <main className="px-[20%] justify-center items-center">
                 <h1 className='pb-5 text-bold underline '># {video.title}</h1>
-                <div className="w-[100%] p-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
-                    <video controls className='w-full'>
+                <div className="p-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
+                    <video controls className='max-h-200px'>
                         <source src={video.videoPath}/>
                         Your browser does not support the video tag.
                     </video>

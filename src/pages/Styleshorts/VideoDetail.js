@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
+//  "proxy": "http://43.202.126.121:8080",
+// ->packeage.json에 추가해야됨
+
 function VideoDetail() {
     const { videoId } = useParams(); // 여기서 videoId를 얻습니다.
     const [video, setVideo] = useState(null);
     const BASE_URL = 'http://43.202.126.121:8080/shorts';
+    //const BASE_URL = 'http://localhost:8080/images';
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${videoId}`)

@@ -1,6 +1,6 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect} from "react";
 import DatePicker, {getYear , getMonth, getDay} from "react-datepicker";
-import { Link, useLocation, useNavigate} from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ko } from "date-fns/esm/locale";
 
 
@@ -31,10 +31,10 @@ export const Datepick = () => {
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}${month}${day}`;
-      };
+    };
     return (
-            <DatePicker showIcon className="border-solid" locale={ko} selected={selectedDate} onChange={handleDateChange} dateFormat="yyyyMMdd" />
-  );
+        <DatePicker showIcon className="border-solid" locale={ko} selected={selectedDate} onChange={handleDateChange} dateFormat="yyyyMMdd" />
+    );
 };
 
 
@@ -55,3 +55,5 @@ export const handleClearQuery = () => {
 
     window.history.pushState({}, '', `?${newQueryString}`);
 };
+
+

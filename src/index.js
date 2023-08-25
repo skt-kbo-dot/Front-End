@@ -6,14 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import './index.css'
 import { BrowserRouter } from "react-router-dom";
 import './style.css';
+import ScrollTop from "./components/ScrollTOP";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <ScrollTop />
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

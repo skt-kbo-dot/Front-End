@@ -7,11 +7,10 @@ export default function Photocut() {
     const [images, setImages] = useState([]);
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
-    //const BASE_URL = 'http://localhost:8080/images';
     const BASE_URL = 'http://43.202.126.121:8080/images';
 
     useEffect(() => {
-        axios.get(BASE_URL).then(response => 
+        axios.get(BASE_URL).then(response =>
             setImages(response.data));
     }, []);
 
@@ -21,27 +20,35 @@ export default function Photocut() {
 
     const handleFetch = () => {
         let url = BASE_URL;
-    
+
+        // date 객체를 yyyyMMdd 형식으로 변환
+        const formatDate = (date) => {
+            const y = date.getFullYear();
+            const m = (date.getMonth() + 1).toString().padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
+            const d = date.getDate().toString().padStart(2, '0');
+            return `${y}${m}${d}`;
+        }
+
         if (teamCode && date) {
-            url += `?teamCode=${teamCode}&date=${date}`;
+            url += `?teamCode=${teamCode}&date=${formatDate(date)}`;
         } else if (date == null){
             url += `?teamCode=${teamCode}`;
         } else {
-            alert('해당이미지이없습니다');
+            alert('해당영상이없습니다');
         }
-    
+
         axios.get(url).then(response => {
-          if(response.data.length === 0){
-            alert('해당이미지이없습니다');
-          } else {
-            setImages(response.data);
-          }
+            if(response.data.length === 0){
+                alert('해당영상이없습니다');
+            } else {
+                setImages(response.data);
+            }
         });
     };
 
     const handleReset = () => {
         axios.get(BASE_URL).then(response => {
-          setImages(response.data);
+            setImages(response.data);
         });
     };
 
@@ -49,7 +56,7 @@ export default function Photocut() {
         <div>
             <div className="w-96 h-96 bg-no-repeat absolute rotate-[144deg] opacity-40 bg-gradient-to-l from-purple-600 via-sky-400 to-lime-400 blur-3xl" /> {/*배경*/}
             <div className="w-96 h-96 absolute top-[10px] right-[100px] rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl items-center justify-center" /> {/*배경*/}
-            <div className="w-[100%] h-80 text-center text-5xl font-extrabold object-contain p-10">
+            <div className="w-[100%] h-60 text-center text-5xl font-extrabold object-contain p-10">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                     Photo-Cut
                 </span>
@@ -84,12 +91,13 @@ export default function Photocut() {
                                     <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
                                 </div>
                             </div>
-                                
+
                         </div>
                     </div>
-                    <div className="w-[100%] h-[600px] relative bg-neutral-200 rounded-xl top-3">
+                    <div className=" h-[600px] relative bg-neutral-200 rounded-xl top-3">
                         <div className="w-[96%] h-[96%] relative bg-white rounded-xl absolute inset-[2%] overflow-y-scroll">
                             <div className="w-full grid grid-cols-3 gap-3">
+
                                 {images.map(image => (
                                     <div key={image.ImageId} className="relative pb-1/1" onClick={() => window.location.href = `/images/${image.imageId}`}>
                                         <img src={image.originalPath} alt="" className="absolute inset-0 w-full h-full object-cover" />
@@ -102,9 +110,9 @@ export default function Photocut() {
 
                 </div>
             </main>
-            <div className="w-[100%] h-96">
-                        <span className="">bottom_banner</span>
-                    </div>
+            <div className="w-[100%] h-60">
+                <span className="">bottom_banner</span>
+            </div>
             <div className='flex flex-row mb-10 absolute animate-slider'>
                 <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
                 <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>

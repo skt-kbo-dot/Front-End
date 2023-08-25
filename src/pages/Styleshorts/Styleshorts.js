@@ -8,13 +8,12 @@ export default function Styleshorts() {
     const [videos, setVideos] = useState([]);
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
-    //const BASE_URL = 'http://localhost:8080/shorts';
     const BASE_URL = 'http://43.202.126.121:8080/shorts';
 
     useEffect(() => {
         axios.get(BASE_URL).then(response => {
-          setVideos(response.data);
-          console.log(response.data)
+            setVideos(response.data);
+            console.log(response.data)
         });
     }, []);
 
@@ -24,28 +23,37 @@ export default function Styleshorts() {
 
     const handleFetch = () => {
         let url = BASE_URL;
-    
+
+        // date 객체를 yyyyMMdd 형식으로 변환
+        const formatDate = (date) => {
+            const y = date.getFullYear();
+            const m = (date.getMonth() + 1).toString().padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
+            const d = date.getDate().toString().padStart(2, '0');
+            return `${y}${m}${d}`;
+        }
+
         if (teamCode && date) {
-            url += `?teamCode=${teamCode}&date=${date}`;
+            url += `?teamCode=${teamCode}&date=${formatDate(date)}`;
         } else if (date == null){
             url += `?teamCode=${teamCode}`;
         } else {
             alert('해당영상이없습니다');
         }
-    
+
         axios.get(url).then(response => {
-          if(response.data.length === 0){
-            alert('해당영상이없습니다');
-          } else {
-            setVideos(response.data);
-          }
+            if(response.data.length === 0){
+                alert('해당영상이없습니다');
+            } else {
+                setVideos(response.data);
+            }
         });
     };
+
 
     const handleReset = () => {
 
         axios.get(BASE_URL).then(response => {
-          setVideos(response.data);
+            setVideos(response.data);
         });
     };
 
@@ -88,18 +96,18 @@ export default function Styleshorts() {
                                     <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
                                 </div>
                             </div>
-                                
+
                         </div>
                     </div>
                     <div className="w-[100%] h-[600px] relative bg-neutral-200 rounded-xl top-3">
                         <div className="w-[96%] h-[96%] relative bg-white rounded-xl absolute inset-[2%] overflow-y-scroll">
-                        {videos.map(video => (
-                            <div className="w-full h-100 relative p-5 flex" key={video.videoId} onClick={() => window.location.href = `/shorts/${video.videoId}`}>
-                                <img className="w-[160px] h-[90px] bg-zinc-300 rounded-2xl" src={video.thumbPath} alt={video.title} />
-                                <p className="pl-10 text-black text-xl font-normal">{video.title}</p>
-                            </div>
-                        ))}
-                            
+                            {videos.map(video => (
+                                <div className="w-full h-100 relative p-5 flex" key={video.videoId} onClick={() => window.location.href = `/shorts/${video.videoId}`}>
+                                    <img className="w-[160px] h-[90px] bg-zinc-300 rounded-2xl" src={video.thumbPath} alt={video.title} />
+                                    <p className="pl-10 text-black text-xl font-normal">{video.title}</p>
+                                </div>
+                            ))}
+
                         </div>
                     </div>
                 </div>

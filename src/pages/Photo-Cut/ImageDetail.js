@@ -5,18 +5,17 @@ import axios from 'axios';
 function ImageDetail() {
     const { imageId } = useParams(); // 여기서 videoId를 얻습니다.
     const [image, setImage] = useState(null);
-    //const BASE_URL = 'http://localhost:8080/images';
     const BASE_URL = 'http://43.202.126.121:8080/images';
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${imageId}`)
-        .then(response => {
-            setImage(response.data);
-            console.log(response.data);
-        })
-        .catch(error => {
-            console.error("Error fetching the video:", error);
-        });
+            .then(response => {
+                setImage(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching the video:", error);
+            });
     }, [imageId]);
 
     if(!image) return <div>Loading...</div>;
@@ -29,10 +28,10 @@ function ImageDetail() {
             <main className="px-[20%] justify-center items-center">
                 <div className='flex'>
                     <div className='w-600px'>
-                        <h1 className='pb-5 text-bold underline '># {image.originalTags}</h1>
+                        <h1 className='pb-5 text-bold underline '>{image.originalTags}</h1>
                         <div className='bg-neutral-200 rounded-xl p-5'>
                             <img src={image.originalPaths}/>
-                        </div>                 
+                        </div>
                     </div>
                     <div className='w-10 h-10'></div>
                     <div className='w-600px'>

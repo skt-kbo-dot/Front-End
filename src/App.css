@@ -1,0 +1,53 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.before {
+  opacity: .4;
+  top: 900px;
+  left: -600px;
+  -webkit-transform: rotate(144deg);
+  transform: rotate(144deg);
+  background: -webkit-gradient(linear,right top,left top,color-stop(38%,#9643ff),color-stop(50%,#43b0ff),color-stop(74%,rgba(72,184,236,.9)),color-stop(120%,rgba(116,255,67,0)));
+  background: linear-gradient(270deg,#9643ff 38%,#43b0ff 50%,rgba(72,184,236,.9) 74%,rgba(116,255,67,0) 120%);
+}

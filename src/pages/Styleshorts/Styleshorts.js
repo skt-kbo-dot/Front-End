@@ -1,0 +1,153 @@
+import React, { useState , useEffect} from "react";
+import axios from "axios";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+export default function Styleshorts() {
+
+    const [videos, setVideos] = useState([]);
+    const [teamCode, setTeamCode] = useState(null);
+    const [date, setDate] = useState(null);
+    const BASE_URL = 'http://localhost:8080/shorts';
+
+    useEffect(() => {
+        axios.get(BASE_URL).then(response => {
+          setVideos(response.data);
+          console.log(response.data)
+        });
+    }, []);
+
+    const handleTeamClick = (code) => {
+        setTeamCode(code);
+    };
+
+    const handleFetch = () => {
+        let url = BASE_URL;
+    
+        if (teamCode && date) {
+            url += `?teamCode=${teamCode}&date=${date}`;
+        } else if (date == null){
+            url += `?teamCode=${teamCode}`;
+        } else {
+            alert('해당영상이없습니다');
+        }
+    
+        axios.get(url).then(response => {
+          if(response.data.length === 0){
+            alert('해당영상이없습니다');
+          } else {
+            setVideos(response.data);
+          }
+        });
+    };
+
+    const handleReset = () => {
+
+        axios.get(BASE_URL).then(response => {
+          setVideos(response.data);
+        });
+    };
+
+    return (
+        <div>
+            <div className="w-96 h-96 bg-no-repeat absolute rotate-[144deg] opacity-40 bg-gradient-to-l from-purple-600 via-sky-400 to-lime-400 blur-3xl" /> {/*배경*/}
+            <div className="w-96 h-96 absolute top-[10px] right-[100px] rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl items-center justify-center" /> {/*배경*/}
+            <div className="w-[100%] h-80 text-center text-5xl font-extrabold object-contain p-10">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+                    Style-Shorts
+                </span>
+            </div>
+            <main className="px-[20%] flex justify-center items-center">
+                <div className="">
+                    <div className="w-[600px] grid grid-cols-5 grid-rows-2 gap-4">
+                        <button className="" onClick={() => handleTeamClick('SK')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/1_ssg_logo+1.png" alt="SSG 랜더스"/></button>
+                        <button className="" onClick={() => handleTeamClick('WO')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/2_kwoom_logo+1.png" alt="키움 히어로즈"/></button>
+                        <button className="" onClick={() => handleTeamClick('LG')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/3_lg_logo+1.png" alt="LG 트윈즈"/></button>
+                        <button className="" onClick={() => handleTeamClick('KT')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/4_kt_logo+1.png" alt="KT 위즈"/></button>
+                        <button className="" onClick={() => handleTeamClick('HT')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/5_kia_logo+1.png" alt="KIA 타이거즈"/></button>
+                        <button className="" onClick={() => handleTeamClick('NC')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/6_nc_logo+1.png" alt="NC 다이노스"/></button>
+                        <button className="" onClick={() => handleTeamClick('SS')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/7_Samsung_logo+1.png" alt="삼성 라이온즈"/></button>
+                        <button className="" onClick={() => handleTeamClick('LT')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/8_lotte_logo+1.png" alt="롯데 자이언트"/></button>
+                        <button className="" onClick={() => handleTeamClick('OB')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/9_doosan_logo+1.png" alt="두산 베이스"/></button>
+                        <button className="" onClick={() => handleTeamClick('HH')}><img className="" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/team_logo/10_hanhwa_logo+1.png" alt="한화 이글스"/></button>
+                    </div>
+                    <div className="w-[100%] pb-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
+                        <p className="pt-5 pl-5 text-center text-black text-xl font-bold ">경기 날짜</p>
+                        <div className="w-[96%] relative bg-white rounded-xl inset-[2%] flex items-stretch p-3">
+                            <p className="w-150">선택된 팀: {getTeamName(teamCode)}</p>
+                            <div className="flex ">
+                                <DatePicker className="w-150 px-1 py-1" selected={date} onChange={(date) => setDate(date)} dateFormat="yyyyMMdd" />
+                                <button onClick={handleFetch} title="호출" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">호출</button>
+                                <div className="w-3"></div>
+                                <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
+                                
+                            </div>
+                                
+                        </div>
+                    </div>
+                    <div className="w-[100%] h-[600px] relative bg-neutral-200 rounded-xl top-3">
+                        <div className="w-[96%] h-[96%] relative bg-white rounded-xl absolute inset-[2%] overflow-y-scroll">
+                        {videos.map(video => (
+                            <div className="w-full h-100 relative p-5 flex" key={video.videoId} onClick={() => window.location.href = `/shorts/${video.videoId}`}>
+                                <img className="w-[160px] h-[90px] bg-zinc-300 rounded-2xl" src={video.thumbPath} alt={video.title} />
+                                <p className="pl-10 text-black text-xl font-normal">{video.title}</p>
+                            </div>
+                        ))}
+                            
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div className="w-[100%] h-96">
+                <span className="">bottom_banner</span>
+            </div>
+
+
+            <div className='flex flex-row mb-10 absolute animate-slider'>
+                <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
+                <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
+                <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
+            </div>
+            <div className="w-[100%] h-100">
+                <div className="">bottom_banner</div>
+            </div>
+        </div>
+    )
+}
+
+const FetchButtonComponent = ({ label, onClick }) => {
+    return (
+        <button 
+            onClick={onClick}
+            className="absolute right-0 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900"
+        >
+            {label}
+        </button>
+    );
+}
+const ResetButtonComponent = ({ label, onClick }) => {
+    return (
+        <button 
+            onClick={onClick}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900"
+        >
+            {label}
+        </button>
+    );
+}
+
+const TEAM_NAMES = {
+    'SK': 'SSG 랜더스',
+    'LG': 'LG 트윈스',
+    'WO': '키움 히어로즈',
+    'KT': 'KT 위즈',
+    'HT': 'KIA 타이거즈',
+    'NC': 'NC 다이노스',
+    'SS': '삼성 라이온즈',
+    'LT': '롯데 자이언트',
+    'OB': '두산 베이스',
+    'HH': '한화이글스'
+};
+function getTeamName(teamCode) {
+    return TEAM_NAMES[teamCode] || '선택되지않음';
+}

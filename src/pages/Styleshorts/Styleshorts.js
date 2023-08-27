@@ -9,7 +9,7 @@ export default function Styleshorts() {
     const [teamCode, setTeamCode] = useState(null);
     const [date, setDate] = useState(null);
     const BASE_URL = 'http://43.202.126.121:8080/shorts';
-    //const BASE_URL = 'http://localhost:8080/images';
+    //const BASE_URL = './samplejson/sample_shorts.json'; //디자인 수정할때, sample데이터
 
     useEffect(() => {
         axios.get(BASE_URL).then(response => {
@@ -84,17 +84,22 @@ export default function Styleshorts() {
                     <div className="w-[100%] pb-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
                         <p className="pt-5 pl-5 text-center text-black text-xl font-bold ">경기 날짜</p>
                         <div className="w-[96%] relative bg-white rounded-xl inset-[2%] flex items-stretch p-3">
-                            <div className="flex ">
-                                <div>
-                                    <p className="w-150">선택된 팀: {getTeamName(teamCode)}</p>
+                            <div className="flex content-center">
+                                <div className="">
+                                    <p className="text-center w-[200px] bg-gray-300 rounded-2xl ">선택된 팀: {getTeamName(teamCode)}</p>
                                 </div>
-                                <div>
-                                    <DatePicker className="w-150 px-1 py-1" selected={date} onChange={(date) => setDate(date)} dateFormat="yyyyMMdd" />
+                                <div className="]">
+                                    <DatePicker className="text-center w-[180px] bg-gray-300 rounded-2xl " 
+                                    selected={date} onChange={(date) => setDate(date)} 
+                                    dateFormat="yyyyMMdd" maxDate={new Date()} placeholderText="날짜를 클릭해주세요" />
                                 </div>
-                                <div className="flex absolute right-2">
-                                    <button onClick={handleFetch} title="호출" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">호출</button>
-                                    <div className="w-3"></div>
-                                    <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
+                                <div className="">
+                                    <div className="flex">
+                                        <button onClick={handleFetch} title="검색하기" className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">검색하기</button>
+                                        <div className="w-3"></div>
+                                        <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
+                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -111,11 +116,15 @@ export default function Styleshorts() {
 
                         </div>
                     </div>
+                    <div className="h-20"></div>
+                    <div className="h-20">
+                        <span className="text-bold text-2xl">Team.KBO-dot<br/></span>
+                        <span className="text-bold text-1xl">⭐️ MZ 세대가 “스낵 컬처” 형태로 야구를 Fun하게 즐길 수 있는 KBO-dot Team의 야구 Playground 플랫폼  </span>
+                    </div>
                 </div>
+                
             </main>
-            <div className="w-[100%] h-96">
-                <span className="">bottom_banner</span>
-            </div>
+            
 
 
             <div className='flex flex-row mb-10 absolute animate-slider'>
@@ -123,9 +132,7 @@ export default function Styleshorts() {
                 <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
                 <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
             </div>
-            <div className="w-[100%] h-100">
-                <div className="">bottom_banner</div>
-            </div>
+
         </div>
     )
 }

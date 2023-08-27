@@ -1,0 +1,30 @@
+[
+    {
+        "imageId": 1,
+        "originalPath": "https://www.motorgraph.com/news/photo/202303/31920_100030_5613.jpg"
+    },
+    {
+        "imageId": 2,
+        "originalPath": "https://www.motorgraph.com/news/photo/202301/31435_98624_3853.jpg"
+    },
+    {
+        "imageId": 3,
+        "originalPath": "https://img.danawa.com/cp_images/service/97/5098962/9f578a67.jpg"
+    },
+    {
+        "imageId": 4,
+        "originalPath": "https://biz.chosun.com/resizer/PCYVOW9nyUlwya0bAOTCWW__X8o=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosunbiz/5WN2YTZU25HHVBBEOKSVJDWSOI.jpg"
+    },
+    {
+        "imageId": 5,
+        "originalPath": "../sampleimage/4.jpeg"
+    },
+    {
+        "imageId": 6,
+        "originalPath": "../sampleimage/4.jpeg"
+    },
+    {
+        "imageId": 7,
+        "originalPath": "../sampleimage/4.jpeg"
+    }
+]

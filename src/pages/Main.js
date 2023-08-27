@@ -12,17 +12,17 @@ export default function Main() {
   return (
     <div>
       <main className="">
-        <div className="relative h-[488px] object-none ">
-          <video muted autoPlay loop className="backdrop-blur-3xl">
-            <source src={"https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.hdr.lrg."+random1+".mp4"} type="video/mp4" className='border-0 outline-0'/>
+        <div className="">
+          <video muted autoPlay loop className="visible">
+            <source src={"https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.hdr.lrg."+random1+".mp4"} type="video/mp4" className='border-0 outline-0 '/>
           </video>
         </div>
         <div className="w-96 h-96 bg-no-repeat absolute rotate-[144deg] opacity-40 bg-gradient-to-l from-purple-600 via-sky-400 to-lime-400 blur-3xl" /> {/*배경*/}
         <div className="w-96 h-96 absolute top-[10px] right-[100px] rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl items-center justify-center" /> {/*배경*/}
 
-        <div className="grid sm:grid-col-1 md:grid-col-2 lg:grid-cols-3 grid-rows-4 gap-4">
+        <div className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 grid-rows-4 gap-4">
           <div className="w-344 sm:w-[100%] bg-[#000333] row-span-2 rounded-3xl">
-              <div className=''>
+              <div className='w-[344px]'>
                 <section class="cell cell--com">
                   <h2 class="cell__hd cell__hd--com" role="text">대화</h2>
                   <p class="cell__txt cell__txt--com" role="text">대화할수록<br/>똑똑해지는 AI 대화</p>
@@ -112,21 +112,23 @@ export default function Main() {
             <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.fnd.illust.small.webp"></img>
           </div>
         </div>
+
+        <div className="px-[20%] h-60">
+          <div className="h-20"></div>
+          <span className="text-bold text-2xl">Team.KBO-dot<br/></span>
+          <span className="text-bold text-1xl">⭐️ MZ 세대가 “스낵 컬처” 형태로 야구를 Fun하게 즐길 수 있는 KBO-dot Team의 야구 Playground 플랫폼  </span>
+        </div>
+
       </main>
+      
 
-      <div className="w-[100%] h-60">
-          <span className="">bottom_banner</span>
-      </div>
-
+      
       <div className='flex flex-row mb-10 absolute animate-slider'>
         <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
         <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
         <img src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.footer.band.webp"></img>
       </div>
-      <div className="w-[100%] h-96">
-        <span className="">bottom_banner</span>
-      </div>
-
+      <div className="h-20"></div>
     </div>
   );
 }

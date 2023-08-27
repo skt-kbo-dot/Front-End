@@ -10,7 +10,7 @@ function VideoDetail() {
     const { videoId } = useParams(); // 여기서 videoId를 얻습니다.
     const [video, setVideo] = useState(null);
     const BASE_URL = 'http://43.202.126.121:8080/shorts';
-    //const BASE_URL = 'http://localhost:8080/images';
+    //const BASE_URL = './samplejson/sample_shorts.json'; //디자인 수정할때, sample데이터
 
     useEffect(() => {
         axios.get(`${BASE_URL}/${videoId}`)
@@ -43,6 +43,10 @@ function VideoDetail() {
                         <source src={video.videoPath}/>
                         Your browser does not support the video tag.
                     </video>
+                </div>
+                <div className="h-20">
+                    <span className="text-bold text-2xl">Team.KBO-dot<br/></span>
+                    <span className="text-bold text-1xl">⭐️ MZ 세대가 “스낵 컬처” 형태로 야구를 Fun하게 즐길 수 있는 KBO-dot Team의 야구 Playground 플랫폼  </span>
                 </div>
             </main>
         </div>

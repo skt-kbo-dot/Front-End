@@ -21,7 +21,8 @@ function App() {
   return (
     <div>
       <header>
-          <div className="z-[100] w-[100%] h-20 bg-slate-300 backdrop-blur-md bg-opacity-50 items-start inline-flex fixed">
+        <BackButton className="absolute left-100 fixed "/>
+          <div className="z-[100] w-[100%] h-20 bg-slate-300 backdrop-blur-xl bg-opacity-50 items-start inline-flex fixed">
               <div className="h-full object-contain p-2">
                   <Link to="/">
                       <img className="h-full" src='https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/a_logo.png' />
@@ -29,13 +30,11 @@ function App() {
               </div>
               <div className="w-[100%] text-center text-2xl xl:text-5xl lg:text-4xl md:text-3xl font-extrabold object-contain p-3">
                   <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                      온가족이 함께 하는 내이름은 크보닷
+                      내이름은 크보닷, 재밌죠
                   </span>
               </div>
           </div>
           <div className="w-[100%] h-20 justify-between items-start gap-96"></div>
-          <BackButton className="absolute left-100 fixed"/>
-
           
       </header>
 
@@ -64,7 +63,7 @@ function BackButton() {
   }
 
   return (
-      <button onClick={goBack} className="fixed left-2 top-1/2 transform -translate-y-1/2 bg-blue-400 text-white text-bold px-4 py-2 rounded-full">
+      <button onClick={goBack} className="fixed left-2 top-1/2 transform -translate-y-1/2 bg-blue-400 text-white text-bold px-4 py-2 rounded-full z-50 invisible md:visible">
           뒤로<br/>가기
       </button>
   );

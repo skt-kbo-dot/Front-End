@@ -1,4 +1,4 @@
-import App from "../App";
+import App from "../../App";
 import React from "react";
 import { Routes, Route, Link, useNavigate} from 'react-router-dom'
 
@@ -10,6 +10,7 @@ export default function Main() {
 
 
   return (
+    
     <div>
       <main className="">
         <div className="">
@@ -37,8 +38,6 @@ export default function Main() {
                   </div>
                 </section>
               </div>
-            <div className="w-344 h-344 relative bg-slate-900 rounded-3xl">
-            </div>
           </div>
           
           <div className="w-344 h-344 bg-slate-200 col-span-2 rounded-3xl relative">
@@ -50,8 +49,6 @@ export default function Main() {
             </div>
             <img className="absolute bottom-0" src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.ctr.character.webp"/>
             <div className="w-[100%] h-[100%] px-9 pt-9 pb-60 rounded-3xl flex-col justify-start items-start gap-1.5 inline-flex">
-              
-              
             </div>
           </div>
 

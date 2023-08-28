@@ -42,7 +42,7 @@ export default function Main() {
                     <div className='w-[100%] bg-rose-600 rounded-3xl'>
                         <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">Style Shorts</div>
                         <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO 명장면에 AI한숟가락<br/>스타일 쇼츠</div>
-                        <img className="w-[150px]" src="image/banner1.png"></img>
+                        <img className="w-[150px]" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>
                     </div>
                 </div>
 

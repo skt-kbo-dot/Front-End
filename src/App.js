@@ -6,7 +6,7 @@ import Styleshorts from './pages/BrowserView/Styleshorts/Styleshorts'
 import Photocut from './pages/BrowserView/Photo-Cut/Photocut'
 import KBO_store from './pages/BrowserView/KBO_store/KBO_store'
 import Errorpage from './pages/errorpage'
-import { Routes, Route, useNavigate, Link} from 'react-router-dom'
+import { Routes, Route, Link} from 'react-router-dom'
 import Detail from './pages/BrowserView/KBO_store/detail'
 import VideoDetail from './pages/BrowserView/Styleshorts/VideoDetail'
 import ImageDetail from './pages/BrowserView/Photo-Cut/ImageDetail'
@@ -21,26 +21,39 @@ import Photocut_mobile from './pages/MobileView/Photo-Cut_mobile/Photocut_mobile
 import ImageDetail_mobile from './pages/MobileView/Photo-Cut_mobile/ImageDetail_mobile';
 
 
-
-
-
 import store_item from './pages/BrowserView/KBO_store/store_item'
-import { useState } from 'react';
 
 import { BrowserView, MobileView } from 'react-device-detect'
 
 function App() {
-  let navigate = useNavigate();
-  let [items] = useState(store_item);
 
   return (
     <div>
       <header>
         <BackButton className="absolute left-100 fixed "/>
+        <div className="z-[100] w-[100%] h-20 bg-slate-300 backdrop-blur-xl bg-opacity-50 items-center inline-flex fixed p-1">
+            {/* 이미지 태그 (아이콘) */}
+            <div className="flex-shrink-0">
+                <Link to="/">
+                    <img className="object-contain w-[9vh] h-[9vh]" src='https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/a_logo.png' />
+                </Link>
+            </div>
+
+            {/* 중앙의 텍스트 */}
+            <div className="flex-grow text-center text-2xl xl:text-5xl lg:text-4xl md:text-3xl font-extrabold p-3">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+                    내이름은 크보닷, 재밌죠
+                </span>
+            </div>
+        </div>
+        <div className="w-[100%] h-20 justify-between items-start gap-96"></div>
+
+
+          {/* <BackButton className="absolute left-100 fixed "/>
           <div className="z-[100] w-[100%] h-20 bg-slate-300 backdrop-blur-xl bg-opacity-50 items-start inline-flex fixed">
               <div className="h-full object-contain p-2">
                   <Link to="/">
-                      <img className="h-full" src='https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/a_logo.png' />
+                      <img className="w-[12vh] h-[8vh]" src='https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/a_logo.png' />
                   </Link>
               </div>
               <div className="w-[100%] text-center text-2xl xl:text-5xl lg:text-4xl md:text-3xl font-extrabold object-contain p-3">
@@ -49,7 +62,7 @@ function App() {
                   </span>
               </div>
           </div>
-          <div className="w-[100%] h-20 justify-between items-start gap-96"></div>
+          <div className="w-[100%] h-20 justify-between items-start gap-96"></div> */}
           
       </header>
       <BrowserView>

@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
 export default function Main() {
 
@@ -17,9 +17,7 @@ export default function Main() {
                         <section class="cell cell--com">
                         <h2 class="cell__hd cell__hd--com" role="text">대화</h2>
                         <p class="cell__txt cell__txt--com" role="text">대화할수록<br/>똑똑해지는 AI 대화</p>
-                        <video playsinline muted autoPlay loop className='static'>
-                            <source src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.com.character.mp4" type="video/mp4"/>
-                        </video>
+                        <video playsinline src={"https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.com.character.mp4"} muted autoPlay loop/>
                         <div id="com" class="com com--pop" aria-hidden="true">
                             <i id="com-bbl-1" class="com__bbl com__bbl--1">더 글로리 개봉했어</i>
                             <i id="com-bbl-2" class="com__bbl com__bbl--2">나른한 오후에 이 노래 들어봐</i>
@@ -49,18 +47,22 @@ export default function Main() {
                 </div>
 
                 <div className="px-[5%] py-[5px] w-[100%] relative" onClick={()=>{navigate('/images')}}>
-                    <div className='w-[100%] bg-blue-300 rounded-3xl'>
+                    <div className='w-[100%] bg-blue-300 rounded-3xl '>
                         <div className="px-9 pt-9 w-[100%] h-5 text-gray-500 text-base font-bold leading-snug">Photo-cut</div>
                         <div className="px-9 pt-5 text-black text-2xl font-bold leading-9">색다른 명장면을 찰칵!📸<br/>AI 포토컷</div>
-                        <img className="w-[150px]" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>
+                        <div className='flex flex-col items-center'>
+                            <img className="w-[150px]" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>
+                        </div>
                     </div>
                 </div>
 
                 <div className="px-[5%] py-[5px] w-[100%] relative" onClick={()=>{navigate('/stores')}}>
-                    <div className='w-[100%] bg-zinc-400 rounded-3xl'>
+                    <div className='w-[100%] bg-zinc-400 rounded-3xl '>
                         <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">KBO Store</div>
                         <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO선수들을 내폰에<br/>KBO Store</div>
-                        <img className="w-[150px]" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>
+                        <div className='flex flex-col items-end'>
+                            <img className="w-[150px]" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>
+                        </div>
                     </div>
                 </div>
                 
@@ -68,7 +70,9 @@ export default function Main() {
                     <div className="w-[100%] bg-fuchsia-700 rounded-3xl relative">
                         <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">포토</div>
                         <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">막 찍어도 인생샷<br/>AI 사진 편집</div>
-                        <img className="w-[200px]" src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.pto.character.1.webp" />
+                        <div className='flex flex-col items-center'>
+                            <img className="w-[200px]" src="https://cdn.sktapollo.com/developers/poc/app.apollo.agent/static/home2/a.pto.character.1.webp" />
+                        </div>
                     </div>
                 </div>
                 

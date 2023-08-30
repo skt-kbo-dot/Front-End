@@ -11,6 +11,25 @@ export default function Styleshorts() {
     const BASE_URL = 'http://43.202.126.121:8080/shorts';
     //const BASE_URL = './samplejson/sample_shorts.json'; //디자인 수정할때, sample데이터
 
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [videoFile, setVideoFile] = useState(null);
+
+    const customStyles = {
+        content: {
+          zIndex: 1000 // 이 값은 다른 요소의 z-index 값보다 높게 설정해주세요.
+        }
+      };
+      
+
+    const handleVideoFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith("video")) {
+            setVideoFile(URL.createObjectURL(file));
+        } else {
+            alert("유효한 비디오 파일을 선택해주세요.");
+        }
+    };
+
     useEffect(() => {
         axios.get(BASE_URL).then(response => {
             setVideos(response.data);
@@ -88,7 +107,7 @@ export default function Styleshorts() {
                                 <div className="">
                                     <p className="text-center w-[200px] bg-gray-300 rounded-2xl ">선택된 팀: {getTeamName(teamCode)}</p>
                                 </div>
-                                <div className="]">
+                                <div className="">
                                     <DatePicker className="text-center w-[180px] bg-gray-300 rounded-2xl " 
                                     selected={date} onChange={(date) => setDate(date)} 
                                     dateFormat="yyyyMMdd" maxDate={new Date()} placeholderText="날짜를 클릭해주세요" />
@@ -98,6 +117,7 @@ export default function Styleshorts() {
                                         <button onClick={handleFetch} title="검색하기" className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">검색하기</button>
                                         <div className="w-3"></div>
                                         <button onClick={handleReset} title="리셋" className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-900">리셋</button>
+                                        <div className="w-3"></div>
                                     </div>
                                     
                                 </div>
@@ -124,7 +144,6 @@ export default function Styleshorts() {
                 </div>
                 
             </main>
-            
 
 
             <div className='flex flex-row mb-10 absolute animate-slider'>

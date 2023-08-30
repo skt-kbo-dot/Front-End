@@ -108,7 +108,7 @@ export default function Photocut() {
                             <div className=" grid grid-cols-3 gap-3">
                                 {images.map(image => (
                                     <div key={image.ImageId} className="relative pb-1/1" onClick={() => window.location.href = `/images/${image.imageId}`}>
-                                        <img src={image.originalPath} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                                        <img src={image.convertedPath} alt="" className="absolute inset-0 w-full h-full object-cover" />
                                     </div>
                                 ))}
                             </div>

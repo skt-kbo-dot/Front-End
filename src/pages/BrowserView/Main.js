@@ -23,7 +23,7 @@ export default function Main() {
 
         <div className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 grid-rows-4 gap-4">
           <div className="w-344 sm:w-[100%] bg-[#000333] row-span-2 rounded-3xl">
-              <div className='w-[344px]'>
+              <div className=''>
                 <section class="cell cell--com">
                   <h2 class="cell__hd cell__hd--com" role="text">대화</h2>
                   <p class="cell__txt cell__txt--com" role="text">대화할수록<br/>똑똑해지는 AI 대화</p>

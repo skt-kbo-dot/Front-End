@@ -32,17 +32,19 @@ function VideoDetail() {
     if(!video) return <div>Loading...</div>;
 
     return (
-        <div>
+        <div className='flex items-center justify-center'>
             <div className="w-96 h-96 bg-no-repeat absolute rotate-[144deg] opacity-40 bg-gradient-to-l from-purple-600 via-sky-400 to-lime-400 blur-3xl" /> {/*배경*/}
             <div className="w-96 h-96 absolute top-[10px] right-[100px] rotate-[-124deg] opacity-20 bg-gradient-to-l from-sky-400 to-lime-400 blur-3xl items-center justify-center" /> {/*배경*/}
             <div className='h-36'></div>
-            <main className="justify-center items-center">
-                <h1 className='pb-5 text-bold underline '>{video.title}</h1>
-                <div className="p-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
-                    <video controls className='max-h-200px'>
-                        <source src={video.videoPath}/>
-                        Your browser does not support the video tag.
-                    </video>
+            <main className="px-[20%] justify-center items-center">
+                <div className="justify-center items-center">
+                    <p className='pb-5 text-2xl font-bold'>{video.title}</p>
+                    <div className="p-5 bg-neutral-200 rounded-xl flex-col justify-start items-start inline-flex relative z-10">
+                        <video controls className='max-h-200px'>
+                            <source src={video.videoPath}/>
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </main>
         </div>

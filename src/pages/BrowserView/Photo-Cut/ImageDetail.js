@@ -29,15 +29,15 @@ function ImageDetail() {
             <main className="px-[20%] justify-center items-center">
                 <div className='flex'>
                     <div className='w-600px'>
-                        <h1 className='pb-5 text-bold underline '>{image.originalTags}</h1>
-                        <div className='bg-neutral-200 rounded-xl p-5'>
+                        <h1 className='pb-5 text-xl font-bold'>{image.originalTags}</h1>
+                        <div className='bg-neutral-200 rounded-xl p-3'>
                             <img src={image.originalPaths}/>
                         </div>
                     </div>
                     <div className='w-10 h-10'></div>
                     <div className='w-600px'>
-                        <h1 className='pb-5 text-bold underline '>{image.convertedTags}</h1>
-                        <div className='bg-neutral-200 rounded-xl p-5'>
+                        <h1 className='pb-5 text-xl font-bold'>{image.convertedTags}</h1>
+                        <div className='bg-neutral-200 rounded-xl p-3'>
                             <img  src={image.convertedPaths}/>
                         </div>
                     </div>

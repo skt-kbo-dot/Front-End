@@ -56,7 +56,7 @@ export default function Main() {
                     </div>
                 </div>
 
-                <div className="px-[5%] py-[5px] w-[100%] relative" onClick={()=>{navigate('/stores')}}>
+                <div className="px-[5%] py-[5px] w-[100%] relative" > {/*onClick={()=>{navigate('/stores')}} */}
                     <div className='w-[100%] bg-zinc-400 rounded-3xl '>
                         <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">KBO Store</div>
                         <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO선수들을 내폰에<br/>KBO Store</div>

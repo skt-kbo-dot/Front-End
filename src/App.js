@@ -73,8 +73,8 @@ function App() {
           <Route path= "/shorts/:videoId" element={<VideoDetail />} />
           <Route path= '/images' element = {<Photocut/>}/>
           <Route path= "/images/:imageId" element={<ImageDetail />} />
-          <Route path= '/stores' element = {<KBO_store/>}/>
-          <Route path= '/stores/:id' element ={<Detail store_item={store_item}/>}/>
+          {/*<Route path= '/stores' element = {<KBO_store/>}/>
+          <Route path= '/stores/:id' element ={<Detail store_item={store_item}/>}/>*/}
           <Route path= '*' element = {<Errorpage/>}/>
         </Routes>
       </BrowserView>
@@ -86,8 +86,8 @@ function App() {
           <Route path= "/shorts/:videoId" element={<VideoDetail_mobile />} />
           <Route path= '/images' element = {<Photocut_mobile/>}/>
           <Route path= "/images/:imageId" element={<ImageDetail_mobile />} />
-          <Route path= '/stores' element = {<KBO_store/>}/>
-          <Route path= '/stores/:id' element ={<Detail store_item={store_item}/>}/>
+          {/*<Route path= '/stores' element = {<KBO_store/>}/>
+          <Route path= '/stores/:id' element ={<Detail store_item={store_item}/>}/>*/}
           <Route path= '*' element = {<Errorpage/>}/>
         </Routes>
       </MobileView>

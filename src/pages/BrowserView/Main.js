@@ -80,7 +80,7 @@ export default function Main() {
               <img className="absolute bottom-0" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>
           </div>
 
-          <div className="relative w-344 h-344 pb-52 bg-zinc-400 rounded-3xl flex-col justify-start items-start inline-flex" onClick={()=>{navigate('/stores')}}>
+          <div className="relative w-344 h-344 pb-52 bg-zinc-400 rounded-3xl flex-col justify-start items-start inline-flex" > {/*onClick={()=>{navigate('/stores')}}*/}
             <div className="px-9 pt-9 w-[100%] h-5 text-gray-300 text-base font-bold leading-snug">KBO Store</div>
             <div className="px-9 pt-5 text-white text-2xl font-bold leading-9">KBO선수들을 내폰에<br/>KBO Store</div>
             <img className="absolute bottom-0" src="https://kbodot.s3.ap-northeast-2.amazonaws.com/logo_banner/banner1.png"></img>

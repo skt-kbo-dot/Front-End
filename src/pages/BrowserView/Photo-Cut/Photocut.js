@@ -50,6 +50,8 @@ export default function Photocut() {
     };
 
     const handleReset = () => {
+        setTeamCode(null);
+        setDate(null);
         axios.get(BASE_URL).then(response => {
             setImages(response.data);
         });
